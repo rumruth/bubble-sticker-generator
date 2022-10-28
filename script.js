@@ -14,9 +14,6 @@ window.onload = function() {
     let source_url = srcurl.value;
 
     let imgload = () => {
-      // wait for all images to load
-      if (--imageCount > 0) return;
-
       // resize the canvas to jellybean size
       canvas.width = source_image.width;
       canvas.height = source_image.height;
