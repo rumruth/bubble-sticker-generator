@@ -3,6 +3,8 @@ window.onload = function() {
   let canvas = document.getElementById("c");
   let ctx = canvas.getContext("2d");
 
+  let bubble = new Image();
+
   const download = () => {
     let link = document.createElement('a');
     link.download = 'filename.png';
@@ -22,7 +24,7 @@ window.onload = function() {
       ctx.drawImage(source_image, 0, 0);
 
       AlphaImage.attach(canvas);
-      AlphaImage.draw(bubble, -10, 0, canvas.width + 20, 150);
+      AlphaImage.draw(bubble, -10, 0, canvas.width + 20, bubble.height * (300/bubble.width));
 
       canvas.removeEventListener('click', download);
       canvas.addEventListener("click", download);
@@ -33,8 +35,7 @@ window.onload = function() {
     source_image.crossOrigin = "Anonymous";
     source_image.src = source_url;
   }
-
-  let bubble = new Image();
+  
   bubble.onload = () => {
     srcurl.addEventListener("change", processImage);
   };
