@@ -22,9 +22,11 @@ window.onload = function() {
 
       // draw the jellybeans on the canvas
       ctx.drawImage(source_image, 0, 0);
+      
+      let nw =  canvas.width + 20;
 
       AlphaImage.attach(canvas);
-      AlphaImage.draw(bubble, -10, 0, canvas.width + 20, bubble.height * (300/bubble.width));
+      AlphaImage.draw(bubble, -10, 0, nw, bubble.height * (nw/bubble.width));
 
       canvas.removeEventListener('click', download);
       canvas.addEventListener("click", download);
