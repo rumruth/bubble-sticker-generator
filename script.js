@@ -1,43 +1,47 @@
 window.onload = function() {
-  const download = function(){
+  let srcurl = document.getElementById("srcurl");
+  let canvas = document.getElementById("c");
+  let ctx = canvas.getContext("2d");
+
+  const download = () => {
     let link = document.createElement('a');
     link.download = 'filename.png';
     link.href = document.getElementById('c').toDataURL()
     link.click();
   }
 
-  document.getElementById("srcurl").addEventListener("change", function() {
-    let srcurl = this.value;
+  const processImage = () => {
+    let source_url = srcurl.value;
 
-    var canvas = document.getElementById("c");
-    var ctx = canvas.getContext("2d");
-
-    var jellybeans = new Image();
-    jellybeans.onload = start;
-    jellybeans.crossOrigin = "Anonymous";
-    jellybeans.src = srcurl;
-    var sun = new Image();
-    sun.onload = start;
-    sun.crossOrigin = "Anonymous";
-    sun.src = './bubblemin.png';
-    var imageCount = 2;
-
-    function start(){
-
+    let imgload = () => {
       // wait for all images to load
-      if(--imageCount>0){return;}
+      if (--imageCount > 0) return;
 
       // resize the canvas to jellybean size
-      canvas.width=jellybeans.width;
-      canvas.height=jellybeans.height;
+      canvas.width = source_image.width;
+      canvas.height = source_image.height;
 
       // draw the jellybeans on the canvas
-      ctx.drawImage(jellybeans,0,0);
+      ctx.drawImage(source_image, 0, 0);
 
       AlphaImage.attach(canvas);
-      AlphaImage.draw(sun, -10, 0, canvas.width + 20, 150);
+      AlphaImage.draw(bubble, -10, 0, canvas.width + 20, 150);
 
+      canvas.removeEventListener('click', download);
       canvas.addEventListener("click", download);
     }
-  });
+
+    let source_image = new Image();
+    source_image.onload = imgload;
+    source_image.crossOrigin = "Anonymous";
+    source_image.src = source_url;
+  }
+
+  let bubble = new Image();
+  bubble.onload = () => {
+    srcurl.addEventListener("change", processImage);
+  };
+  
+  bubble.crossOrigin = "Anonymous";
+  bubble.src = './bubblemin.png';
 };
