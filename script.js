@@ -19,7 +19,7 @@ window.onload = function() {
     var sun = new Image();
     sun.onload = start;
     sun.crossOrigin = "Anonymous";
-    sun.src = 'https://i.imgur.com/d5dXjAp.png';
+    sun.src = './bubblemin.png';
     var imageCount = 2;
 
     function start(){
