@@ -2,6 +2,8 @@ window.onload = function() {
   let srcurl = document.getElementById("srcurl");
   let canvas = document.getElementById("c");
   let ctx = canvas.getContext("2d");
+  let dragcontainer = document.getElementById("dragcontainer");
+  let imagecontainer = document.getElementById("imagecontainer");
 
   let bubble = new Image();
 
@@ -30,6 +32,9 @@ window.onload = function() {
 
       canvas.removeEventListener('click', download);
       canvas.addEventListener("click", download);
+
+      dragcontainer.style.display = "none";
+      imagecontainer.style.display = "flex";
     }
 
     let source_image = new Image();
@@ -43,5 +48,6 @@ window.onload = function() {
   };
   
   bubble.crossOrigin = "Anonymous";
-  bubble.src = './bubblemin.png';
+  //bubble.src = './bubblemin.png';
+  bubble.src = 'https://i.imgur.com/BM65kzu.png';
 };
