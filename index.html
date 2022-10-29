@@ -3,14 +3,54 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Bubble sticker generator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div>
-		<input type="text" id="srcurl" />
-	</div>
-	<div>
-		<canvas id="c"></canvas>
+	<div class="main">
+		<div class="drag-container" id="dragcontainer">
+			<label class="dragarea" for="file">
+				<span class="dragarea_inner">
+					<span class="dragarea_icon">
+							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15,3.41421356 L15,7 L18.5857864,7 L15,3.41421356 Z M19,9 L15,9 C13.8954305,9 13,8.1045695 13,7 L13,3 L5,3 L5,21 L19,21 L19,9 Z M5,1 L15.4142136,1 L21,6.58578644 L21,21 C21,22.1045695 20.1045695,23 19,23 L5,23 C3.8954305,23 3,22.1045695 3,21 L3,3 C3,1.8954305 3.8954305,1 5,1 Z M11,13 L11,10 L13,10 L13,13 L16,13 L16,15 L13,15 L13,18 L11,18 L11,15 L8,15 L8,13 L11,13 Z" fill-rule="evenodd" fill="currentColor"/>
+							</svg>
+					</span>
+					<span class="dragarea_title">Click to select an image</span>
+					<span class="dragarea_description">or drag and drop it here</span>
+
+					<input type="file" id="file" name="file" />
+
+					<span class="dragarea_rule"></span>
+					<span class="dragarea_subtitle">or enter a link to an image</span>
+
+					<input type="text" id="srcurl" />
+				</span>
+			</label>
+		</div>
+		<div class="image-container" id="imagecontainer">
+			<div class="image-container_inner">
+				<div class="image-container_inner_left">
+					<canvas id="c"></canvas>
+				</div>
+				<div class="image-container_inner_right">
+					<div class="control-container">
+						<span class="control-title">Bubble height</span>
+						<span class="control-wrapper">
+							<input type="range" class="control" id="heightrange" min="1" step="1">
+						</span>
+						<span class="control-title">Download result</span>
+						<span class="control-subtitle">Or copy to clipboard</span>
+						<span class="control-split">
+							<button class="control" id="download">Download</button>
+							<button class="control" id="copy">Copy</button>
+						</span>
+						<span class="control-rule"></span>
+						<button class="control" id="clear">Clear</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="lib.js"></script>
