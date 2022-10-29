@@ -26,6 +26,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	height: 100%;
+	padding: 0 15px;
 }
 
 .drag-container:after,
@@ -42,6 +43,8 @@ body {
 	padding: 10px;
 	border-radius: 8px;
 	background: #1E1E1E;
+	width: 470px;
+	max-width: 100%;
 }
 
 .dragarea > span {
@@ -58,7 +61,7 @@ body {
 	align-items: center;
 	border: 3px dashed #292929;
 	border-radius: 8px;
-	padding: 45px 70px;
+	padding: 45px 30px;
 	cursor: pointer;
 }
 
@@ -77,6 +80,7 @@ body {
 	font-size: 22px;
 	font-weight: 600;
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 .dragarea .dragarea_subtitle {
@@ -84,12 +88,14 @@ body {
 	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 15px;
+	text-align: center;
 }
 
 .dragarea .dragarea_description {
 	color: #6F6F6F;
 	font-weight: 500;
 	font-size: 16px;
+	text-align: center;
 }
 
 .dragarea .dragarea_rule {
@@ -154,11 +160,15 @@ body {
 	flex-grow: 1;
 	width: 100%;
 	min-height: 50px;
-
 }
 
 .image-container .image-container_inner {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 100%;
+	padding: 10px;
 }
 
 .image-container .image-container_inner .image-container_inner_left {
@@ -166,13 +176,20 @@ body {
 	justify-content: center;
 	align-items: flex-start;
 	width: 400px;
+	max-width: 100%;
 	height: auto;
-	margin-right: 20px;
+	margin: 0px 10px 10px;
+}
+
+.image-container .image-container_inner .image-container_inner_right {
+	margin: 0px 10px;
+	max-width: 100%;
 }
 
 .image-container .image-container_inner .image-container_inner_left canvas {
 	object-fit: contain;
 	width: 100%;
+	max-width: 100%;
 	height: auto;
 	align-self: center;
 }

@@ -6,7 +6,6 @@ window.onload = function() {
   let imagecontainer = document.getElementById("imagecontainer");
   let heightrange = document.getElementById("heightrange");
   let db = document.getElementById("download");
-  let cb = document.getElementById("copy");
   let clb = document.getElementById("clear");
   let fileinput = document.getElementById("file");
 
@@ -17,19 +16,26 @@ window.onload = function() {
 
   let srctimeout;
 
+  function SelectText(element) {
+    var doc = document;
+    if (doc.body.createTextRange) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } else if (window.getSelection) {
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+  }
+
   const download = () => {
     let link = document.createElement('a');
     link.download = 'filename.png';
     link.href = document.getElementById('c').toDataURL()
     link.click();
-  }
-
-  const copy = () => {
-    canvas.toBlob(function(blob) { 
-      const item = new ClipboardItem({ "image/png": blob });
-      navigator.clipboard.write([item]);
-      console.log("Copied");
-    });
   }
 
   const clear = () => {
@@ -81,9 +87,6 @@ window.onload = function() {
       db.removeEventListener('click', download);
       db.addEventListener("click", download);
 
-      cb.removeEventListener('click', copy);
-      cb.addEventListener("click", copy);
-
       clb.removeEventListener('click', clear);
       clb.addEventListener("click", clear);
     }
@@ -109,6 +112,6 @@ window.onload = function() {
   };
   
   bubble.crossOrigin = "Anonymous";
-  bubble.src = './bubblemin.png';
-  //bubble.src = 'https://i.imgur.com/BM65kzu.png';
+  //bubble.src = './bubblemin.png';
+  bubble.src = 'https://i.imgur.com/BM65kzu.png';
 };
