@@ -112,6 +112,6 @@ window.onload = function() {
   };
   
   bubble.crossOrigin = "Anonymous";
-  //bubble.src = './bubblemin.png';
-  bubble.src = 'https://i.imgur.com/BM65kzu.png';
+  bubble.src = './bubblemin.png';
+  //bubble.src = 'https://i.imgur.com/BM65kzu.png';
 };
